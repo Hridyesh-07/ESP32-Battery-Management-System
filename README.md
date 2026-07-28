@@ -345,3 +345,148 @@ The health state is displayed on:
 allowing operators to quickly understand overall battery condition.
 
 ---
+
+# 🛡 Event-Driven Safety Protection Kernel
+
+The Safety Protection Kernel is responsible for continuously monitoring battery conditions and protecting the system whenever abnormal behavior is detected.
+
+Unlike traditional Arduino implementations that rely on blocking delays, this project uses a **fully non-blocking event-driven architecture** based entirely on `millis()`. This allows battery monitoring, safety protection, LCD updates, telemetry transmission, and cloud communication to execute concurrently without affecting system responsiveness.
+
+---
+
+## ⚡ Protection Strategy
+
+The kernel continuously evaluates battery data against predefined safety thresholds.
+
+Whenever an unsafe condition is detected, the corresponding protection routine is executed automatically.
+
+Protection actions include:
+
+- Immediate relay isolation
+- Audible buzzer warning
+- LCD fault notification
+- Runtime mode transition
+- Fault logging
+- Cloud event synchronization
+- Automatic recovery monitoring
+
+---
+
+# 🚨 Fault Detection System
+
+The Battery Management System implements multiple fault detection mechanisms to improve operational reliability and system safety.
+
+| Fault Type | Detection Purpose | Protective Action |
+|------------|-------------------|-------------------|
+| Weak Cell Fault | Cell voltage below safe operating threshold | Relay OFF, Warning, Recovery Monitoring |
+| Overvoltage Fault | Cell voltage exceeds safe limit | Relay OFF, Warning, Recovery Monitoring |
+| Sensor Fault | Invalid sensor readings or disconnected input | Fault Isolation, Runtime Protection |
+| Frozen ADC Detection | ADC readings remain unchanged for abnormal duration | Sensor Isolation & Fault Logging |
+| Voltage Fluctuation Detection | Rapid voltage variation indicating instability | Temporary Safety Protection |
+| Relay Mismatch Detection | Relay feedback differs from commanded state | Relay Fault Notification |
+
+---
+
+## 📝 Fault Logging System
+
+Every detected fault is automatically recorded with its corresponding timestamp.
+
+The logging subsystem maintains structured diagnostic information for future analysis and dashboard visualization.
+
+Each logged event stores:
+
+- Fault Name
+- Detection Timestamp
+- Recovery Status
+
+This information is used for:
+
+- Fault History
+- Dashboard Diagnostics
+- Runtime Monitoring
+- Event Queue Synchronization
+
+---
+
+# ⚙ Fault-Tolerant Runtime System
+
+Instead of shutting down immediately after every abnormal condition, the Battery Management System transitions intelligently between multiple operational modes.
+
+This enables the embedded software to continue operating safely whenever possible.
+
+---
+
+## Runtime Modes
+
+| Runtime Mode | Description |
+|--------------|-------------|
+| 🟢 NORMAL | All operating conditions are healthy |
+| 🟡 DEGRADED | Minor faults detected while maintaining operation |
+| 🟠 FAILSAFE | Critical protection active with restricted functionality |
+| 🔴 SHUTDOWN | Severe fault requiring complete system isolation |
+
+The runtime controller continuously evaluates system conditions and automatically transitions between these modes based on battery status and fault severity.
+
+---
+
+# 🔄 Automatic Recovery Logic
+
+The system continuously checks whether detected faults have been cleared.
+
+If operating conditions return to safe limits:
+
+- Fault status is updated
+- Runtime mode is restored
+- Relay operation resumes
+- LCD returns to normal diagnostics
+- Dashboard updates automatically
+
+This recovery process prevents unnecessary permanent shutdowns while ensuring battery safety.
+
+---
+
+# 🔒 Relay Protection
+
+The relay acts as the primary electrical protection device.
+
+During unsafe operating conditions, the Battery Management System disconnects the simulated battery pack by automatically disabling the relay.
+
+Relay protection prevents continued operation during:
+
+- Weak Cell Fault
+- Overvoltage Fault
+- Critical Runtime Conditions
+
+Anti-relay chatter logic is implemented to prevent rapid switching caused by unstable sensor readings.
+
+---
+
+# 🔔 Audible Warning System
+
+The active buzzer provides immediate operator feedback whenever a critical event occurs.
+
+Warning notifications are generated during:
+
+- Critical battery faults
+- Protection activation
+- Runtime transitions
+
+This allows operators to recognize abnormal conditions without continuously monitoring the dashboard.
+
+---
+
+# 🧠 Fault Isolation Strategy
+
+A key objective of the runtime architecture is to isolate faults without unnecessarily interrupting healthy subsystems.
+
+Rather than stopping the entire application, individual fault conditions are managed independently while allowing unaffected modules to continue operating.
+
+This modular approach improves:
+
+- Reliability
+- Fault tolerance
+- System stability
+- Maintainability
+- Scalability
+
+---
