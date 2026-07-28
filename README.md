@@ -490,3 +490,94 @@ This modular approach improves:
 - Scalability
 
 ---
+
+# 📺 Intelligent Embedded HMI & Diagnostic Interface
+
+The system features a **16×2 I2C LCD** that provides real-time battery diagnostics through an intelligent rotating display interface. The LCD serves as the primary local Human-Machine Interface (HMI), allowing operators to monitor system performance without requiring cloud connectivity.
+
+Unlike a static display, the interface cycles automatically through multiple diagnostic screens while maintaining smooth, flicker-free updates using a non-blocking event-driven architecture.
+
+---
+
+## Displayed Information
+
+The LCD continuously presents:
+
+- Individual Cell Voltages (C1–C4)
+- Pack Voltage
+- Average Cell Voltage
+- Battery Health Status
+- Cell Imbalance Percentage
+- Runtime Mode
+- Safety Status
+- Active Fault Messages
+
+During normal operation, diagnostic screens rotate automatically. Whenever a critical fault is detected, the rotating display is temporarily overridden to immediately present the corresponding fault message, ensuring the operator is instantly informed of unsafe conditions.
+
+---
+
+## LCD Features
+
+- Real-time battery diagnostics
+- Five rotating information screens
+- Automatic fault-priority display
+- Flicker-free updates
+- Event-driven screen switching
+- Continuous monitoring without interrupting system execution
+
+<p align="center">
+<img src="Images/LCD_Healthy_1.png" width="450">
+<img src="Images/LCD_Healthy_2.png" width="450">
+</p>
+
+<p align="center">
+<img src="Images/LCD_Healthy_3.png" width="450">
+<img src="Images/LCD_Healthy_4.png" width="450">
+</p>
+
+<p align="center">
+<img src="Images/LCD_Healthy_5.png" width="450">
+<img src="Images/LCD_Fault.png" width="450">
+</p>
+
+---
+
+# ☁ Intelligent Cloud Telemetry Architecture
+
+The Battery Management System integrates with **Blynk IoT** to provide remote monitoring and real-time visualization of battery conditions. Operational data is continuously synchronized with the cloud, allowing users to observe battery performance from any connected device.
+
+To reduce unnecessary network traffic, telemetry is transmitted using a **state-change-based communication strategy**. Data is sent only when meaningful changes occur or after predefined update intervals, minimizing bandwidth usage while preserving real-time responsiveness.
+
+---
+
+## Cloud Features
+
+- Secure Wi-Fi connectivity
+- Automatic Wi-Fi reconnection
+- State-change-based telemetry
+- Event queue synchronization
+- Cloud status monitoring
+- Offline-safe operation
+- Automatic dashboard synchronization after reconnect
+
+---
+
+## Dashboard Parameters
+
+The Executive Dashboard displays:
+
+- Cell Voltages
+- Pack Voltage
+- Average Voltage
+- Weakest Cell
+- Strongest Cell
+- Battery Health
+- Runtime Mode
+- Safety State
+- Fault Counter
+- Last Fault
+- Risk Level
+- Recommendation
+- System Uptime
+
+---
