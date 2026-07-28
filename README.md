@@ -246,3 +246,102 @@ ESP32-Battery-Management-System/
 ```
 
 ---
+
+# 🏗 System Architecture
+
+The ESP32 Battery Management System follows a modular event-driven embedded architecture where each subsystem operates independently while sharing battery information through a centralized processing pipeline.
+
+The system continuously acquires battery data, performs intelligent analytics, evaluates system safety, updates the Human-Machine Interface, and synchronizes important events with the Blynk cloud platform.
+
+<p align="center">
+<img src="Diagrams/Architecture_Diagram.png" width="900">
+</p>
+
+---
+
+# 🔄 System Workflow
+
+The software executes continuously without using blocking delays.
+
+Each iteration of the main loop performs only the required operations, allowing every subsystem to run cooperatively using `millis()`-based scheduling.
+
+<p align="center">
+<img src="Diagrams/Workflow_Diagram.png" width="900">
+</p>
+
+---
+
+# 🔋 Adaptive Multi-Cell Battery Intelligence Engine
+
+The Battery Intelligence Engine forms the analytical core of the system. It continuously acquires analog measurements from four simulated lithium battery cells and converts the readings into meaningful operational information.
+
+Instead of only displaying voltages, the engine performs multiple analytical calculations to determine the overall condition of the battery pack.
+
+### Battery Parameters Calculated
+
+| Parameter | Description |
+|-----------|-------------|
+| Cell Voltage | Individual voltage of each battery cell |
+| Pack Voltage | Total voltage of all four cells |
+| Average Voltage | Average voltage across the battery pack |
+| Weakest Cell | Lowest voltage cell |
+| Strongest Cell | Highest voltage cell |
+| Cell Imbalance | Difference between weakest and strongest cell |
+| Battery Health | Overall health classification |
+
+---
+
+## 🔍 Real-Time Cell Monitoring
+
+The ESP32 continuously reads all four analog channels connected to simulated battery cells.
+
+Each reading is converted into a battery voltage before further processing.
+
+The monitoring engine provides:
+
+- Continuous voltage acquisition
+- Live battery statistics
+- Pack analysis
+- Cell comparison
+- Intelligent battery diagnostics
+
+---
+
+## 📈 Battery Analytics
+
+The analytical subsystem automatically determines:
+
+- Pack Voltage
+- Average Cell Voltage
+- Weakest Cell
+- Strongest Cell
+- Voltage Difference
+- Cell Imbalance Percentage
+
+These calculations are updated continuously throughout system operation, allowing every subsystem to operate using the latest battery information.
+
+---
+
+## ❤️ Battery Health Classification
+
+The Battery Management System automatically evaluates battery condition using calculated imbalance percentages and voltage thresholds.
+
+### Supported Health States
+
+| Health State | Description |
+|--------------|-------------|
+| 🟢 Healthy | Battery pack operating normally |
+| 🟡 Minor Imbalance | Small voltage difference detected |
+| 🟠 Critical Imbalance | Significant imbalance requiring attention |
+| 🔴 Pack Failure | Battery pack no longer safe for operation |
+
+The health state is displayed on:
+
+- LCD HMI
+- Blynk Dashboard
+- Serial Monitor
+- Diagnostic Reports
+
+allowing operators to quickly understand overall battery condition.
+
+---
