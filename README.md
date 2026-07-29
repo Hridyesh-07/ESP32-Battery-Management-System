@@ -232,6 +232,7 @@ ESP32-Battery-Management-System/
 │   ├── LCD_Fault.png
 │   ├── Fault_Count.png
 │   ├── Dashboard_Fault_Count.png
+│   ├── Wokwi_Circuit.png
 │
 ├── Wokwi/
 │   ├── diagram.json
@@ -681,8 +682,11 @@ Potential enhancements for future versions include:
 
 **Hridyesh Singh Bisht**
 
-B.Tech Automation & Robotics Engineering  
-Symbiosis University of Applied Sciences, Indore
+B.Tech – Automation & Robotics Engineering
+
+Symbiosis University of Applied Sciences
+
+Embedded Systems | IoT | Robotics Enthusiast
 
 Developed as part of the **Elevance Skills Embedded Systems Internship Program**.
 
@@ -705,3 +709,5 @@ Special thanks to:
 This project is licensed under the **MIT License**.
 
 See the `LICENSE` file for additional information.
+
+⭐ If you found this project interesting, consider giving it a star!
