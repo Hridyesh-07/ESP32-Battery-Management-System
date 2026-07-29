@@ -581,3 +581,130 @@ The Executive Dashboard displays:
 - System Uptime
 
 ---
+
+# 📊 Executive Battery Intelligence Dashboard
+
+The project includes a professional **Blynk Executive Dashboard** designed to provide operators with a centralized view of the entire battery system.
+
+The dashboard combines battery analytics, runtime diagnostics, fault information, and operator recommendations into a single interface for quick decision-making.
+
+---
+
+## Dashboard Highlights
+
+- Live battery monitoring
+- Runtime diagnostics
+- Fault history
+- Risk assessment
+- Operator recommendations
+- Cloud-based monitoring
+- Real-time visualization
+
+<p align="center">
+<img src="Images/Dashboard_Healthy_1.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Healthy_2.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Healthy_3.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Healthy_4.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Fault_1.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Fault_2.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Fault_3.png" width="900">
+</p>
+
+<p align="center">
+<img src="Images/Dashboard_Fault_4.png" width="900">
+</p>
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Arduino IDE
+- ESP32 Board Package
+- Blynk IoT Account
+- Wokwi Simulator (optional)
+
+---
+
+## Required Libraries
+
+- WiFi
+- Blynk
+- LiquidCrystal_I2C
+
+---
+
+## Running the Project
+
+1. Clone this repository.
+2. Open `Code/Battery_Management_System.ino` using Arduino IDE.
+3. Install the required libraries.
+4. Configure your Wi-Fi credentials and Blynk authentication token.
+5. Upload the sketch to an ESP32 or run the project in Wokwi.
+6. Open the Blynk Dashboard to monitor the system in real time.
+
+---
+
+# 🔮 Future Improvements
+
+Potential enhancements for future versions include:
+
+- Battery State of Charge (SoC) estimation
+- Battery State of Health (SoH) prediction
+- Temperature monitoring using dedicated sensors
+- CAN Bus communication
+- SD card data logging
+- OTA firmware updates
+- Real lithium battery pack integration
+- Machine learning-based battery analytics
+- Predictive maintenance algorithms
+
+---
+
+# 👨‍💻 Author
+
+**Hridyesh Singh Bisht**
+
+B.Tech Automation & Robotics Engineering  
+Symbiosis University of Applied Sciences, Indore
+
+Developed as part of the **Elevance Skills Embedded Systems Internship Program**.
+
+---
+
+# 🙏 Acknowledgements
+
+Special thanks to:
+
+- Elevance Skills Internship Program
+- Wokwi Simulation Platform
+- Blynk IoT
+- Arduino Community
+- Espressif Systems
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for additional information.
