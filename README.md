@@ -234,7 +234,7 @@ ESP32-Battery-Management-System/
 │   ├── LCD_Healthy_5.png
 │   ├── LCD_Fault.png
 │   ├── Fault_Count.png
-│   ├── Dashboar_Fault_Count.png
+│   ├── Dashboard_Fault_Count.png
 │
 ├── Wokwi/
 │   ├── diagram.json
